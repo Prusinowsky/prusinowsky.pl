@@ -1,6 +1,7 @@
 const express = require('express')
 const indexRouter = require('./routes/indexRouter')
 const homeRouter = require('./routes/homeRouter')
+const courseRouter = require('./routes/courseRouter')
 const errorRouter = require('./routes/errorRouter')
 
 const App = express()
@@ -11,8 +12,8 @@ App.set('views', __dirname + '/views');
 
 App.use(indexRouter)
 App.use(homeRouter)
+App.use(courseRouter)
 App.use(errorRouter)
-
 
 App.listen(PORT, () => {
   console.log(`Running at http://localhost:${PORT}`)

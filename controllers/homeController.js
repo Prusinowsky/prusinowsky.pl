@@ -1,31 +1,15 @@
-// const axios = require('axios');
+const fs = require('fs');
+const matter = require('gray-matter');
 
 /**
  * Home View 
  */
 const homeView = async (req, res, next) => {
-
-    // const song = await axios.get('https://api.spotify.com/v1/me/player/currently-playing?market=PL&additional_types=episode', {
-    //     headers: {
-    //       "Accept" : "application/json",
-    //       "Content-Type" : "application/json",
-    //       "Authorization" : "Bearer BQAeTj2VqdrRYsVUD-ePV1CvJDTRnr-aaizCw5zTZDkaEO96dHrimbbatJhvASAZzhLh-vzsMJDbgvUflUcTH4La8LfHI4QtdHfXMJPft85V3-bkQWF9lSkIsI5bbXGorn2nNl-586lcsYcTBAYzUtDdDdIKx65BRBooFFAq"
-    //     }
-    // })
-    // .then(function (response) {
-    //   // console.log(response.data.item.album)
-    //   return {
-    //     name: response.data.item.name, 
-    //     url: response.data.item.external_urls.spotify, 
-    //     photo: response.data.item.album.images[1].url 
-    //   } || null
-    // })
-    // .catch(function(){
-    //   return null
-    // })
+    const file = fs.readFileSync('./content/welcome.html', 'utf8');
+    const data = matter(file);
 
     res.render('index', {
-        song: null
+        data
     })
 }
 
@@ -40,7 +24,14 @@ const homeView = async (req, res, next) => {
  * About View 
  */
  const aboutView = (req, res, next) => {
-    res.render('about')
+
+    const file = fs.readFileSync('./content/about.html', 'utf8');
+    const data = matter(file);
+
+    res.render('index', {
+        data
+    })
+
 }
 
 
@@ -48,7 +39,14 @@ const homeView = async (req, res, next) => {
  * Contact View 
  */
  const contactView = (req, res, next) => {
-    res.render('contact')
+
+    const file = fs.readFileSync('./content/contact.html', 'utf8');
+    const data = matter(file);
+
+    res.render('index', {
+        data
+    })
+
 }
 
 

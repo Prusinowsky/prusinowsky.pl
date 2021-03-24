@@ -2,7 +2,6 @@ const express = require('express')
 const {homeView, projectsView, aboutView, contactView} = require('../controllers/homeController')
 const router = express.Router();
 
-router.use(express.static('public'))
 
 router.get('/', homeView)
 router.get('/welcome', homeView)

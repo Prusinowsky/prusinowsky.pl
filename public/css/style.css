@@ -2,6 +2,7 @@
     --primary: #516756;
     --secondary: #dce56c;
     --background: #efefef;
+    --background-darken: #dfdfdf;
 }
 
 body {
@@ -24,21 +25,41 @@ header {
     justify-content: space-between;
 }
 
-.nav-link {
+.nav-item {
+    position: relative;
     display: inline-block;
-    margin: 10px;
-    color: #fff;
-    padding: 7px 10px;
-    background-color: var(--primary);
+    border: 3px solid var(--primary);
+    padding: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    top: 0;
+    left: 0;
+    transition: all ease-in-out 0.3s;
 }
 
-.nav-item {
-    display: inline;
+.nav-item:hover {
+    top: -5px;
+    left: -5px;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    color: var(--primary);
+    background-color: var(--background-darken);
+    padding: 7px 10px;
+    font-weight: 500;
+    top: 0;
+    left: 0;
+    transition: top ease-in-out 0.3s, left ease-in-out 0.3s;
 }
 
 .nav-link:hover,
 .nav-link:active {
-    color: var(--secondary);
+    color: var(--primary);
+    top: 10px;
+    left: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -57,9 +78,15 @@ header {
         margin: auto;
     }
 
+    .nav-item {
+        display: block;
+        margin: 20px auto;
+        max-width: 300px;
+    }
+
     .nav-link {
         display: block;
-        margin: 15px auto;
+        margin: 0 auto;
         max-width: 300px;
     }
 
@@ -94,14 +121,28 @@ header {
 
 .photo-box {
     position: relative;
-    background-color: var(--primary);
+    border: 3px solid var(--primary);
     margin: 50px 0;
     width: 500px;
-    top: -30px;
-    left: -30px;
+    top: -15px;
+    left: -15px;
+    transition: all ease-in-out 0.3s;
+}
+
+.photo-box:hover {
+    top: -20px;
+    left: -20px;
 }
 
 .photo-box .photo {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    width: auto;
+    transition: all ease-in-out 0.3s;
+}
+
+.photo-box:hover .photo {
     position: relative;
     top: 30px;
     left: 30px;
@@ -141,4 +182,9 @@ header {
     margin: 30px 5px 10px 5px;
     width: 2rem;
     height: 2rem;
+    transition: all ease-in-out 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.3);
 }

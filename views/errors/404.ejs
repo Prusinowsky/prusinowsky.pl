@@ -11,7 +11,7 @@
         <main>
             <div class="main-wrap container is-flex is-flex-wrap-wrap is-justify-content-space-between">
                 <div class="lead">
-                    <h1 class="title is-2">&lt;b&gt;<span class="has-primary-color is-capitalized">404 </span>&lt;/b&gt;
+                    <h1 class="title is-2"><span class="has-primary-color is-capitalized">404 </span>
                         - Not Found</h1>
                     <h1 class="title is-4"><span class="has-primary-color is-capitalized">Upsss,</span> nie znaleziono
                         strony :( </h1>
@@ -22,19 +22,6 @@
             </div>
         </main>
         <%- include('../partials/footer') -%>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    let i = 0;
-                    const $loading = document.querySelector("#loading")
-                    const func = () => {
-                        $loading.innerHTML = ".".repeat(i + 1)
-                        i %= 10;
-                        i++;
-                        setTimeout(func, 500)
-                    }
-                    func();
-                })
-            </script>
 </body>
 
 </html>
