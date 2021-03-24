@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <% title = title.concat(" | Witam!") %>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/header') -%>
+        <main>
+            <div class="main-wrap container is-flex is-flex-wrap-wrap is-justify-content-space-between">
+                <div class="lead">
+                    <h1 class="title is-2">&lt;b&gt;<span
+                            class="has-primary-color is-capitalized">Cześć</span>&lt;/b&gt;</h1>
+                    <h1 class="title is-4"><span class="has-primary-color is-capitalized">Jestem Patryk,</span>
+                        Full-stack Engineer.</h1>
+                    <div class="description">
+                        <p>
+                            Aktualnie studiuję elektronikę na 3-cim roku na Politechnice Warszawskiej. W przyszłości
+                            chciałbym zostać Software Architektem.
+                        </p>
+                        <br>
+                        <p>Kocham gotować, podróżować oraz cykać zdjęcia, jedno z nich możecie zobaczyć poniżej lub obok
+                            : )</p>
+                        <br>
+                        <% if(song){ %>
+                            <div class="has-text-centered">
+                                <h3 class="title is-4">Aktualnie słucha</h3>
+                                <div class="photo-box photo-spotify">
+                                    <a href="<%= song.url %>" target="_BLANK"><img class="photo" src="<%= song.photo %>"
+                                            alt="<%= song.name %>" /></a>
+                                </div>
+                                <a href="<%= song.url %>" target="_BLANK">
+                                    <h4 class="title is-4">
+                                        <%= song.name %>
+                                    </h4>
+                                </a>
+                            </div>
+                            <% } %>
+                                <br>
+                                <p>Pracuję na tą stroną <span id="loading">...</span></p>
+                    </div>
+                </div>
+                <div class="photo-box is-half">
+                    <img class="photo" src="./photo.jpg" alt="Patryk Prusinowski">
+                </div>
+            </div>
+        </main>
+        <%- include('./partials/footer') -%>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let i = 0;
+                    const $loading = document.querySelector("#loading")
+                    const func = () => {
+                        $loading.innerHTML = ".".repeat(i + 1)
+                        i %= 10;
+                        i++;
+                        setTimeout(func, 500)
+                    }
+                    func();
+                })
+            </script>
+</body>
+
+</html>

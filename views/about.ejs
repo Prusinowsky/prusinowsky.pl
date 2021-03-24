@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <% title += " | Witam!" %>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/header') -%>
+        <main>
+            <div class="main-wrap container is-flex is-flex-wrap-wrap is-justify-content-space-between">
+                <div class="lead">
+                    <h1 class="title is-2">&lt;b&gt;<span
+                            class="has-primary-color is-capitalized">O mnie</span>&lt;/b&gt;</h1>
+                    <div class="description">
+                        Tu dodam coś o mnie
+                    </div>
+                </div>
+                <div class="photo-box is-half">
+                    <img class="photo" src="./photo.jpg" alt="Patryk Prusinowski">
+                </div>
+            </div>
+        </main>
+        <%- include('./partials/footer') -%>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let i = 0;
+                    const $loading = document.querySelector("#loading")
+                    const func = () => {
+                        $loading.innerHTML = ".".repeat(i + 1)
+                        i %= 10;
+                        i++;
+                        setTimeout(func, 500)
+                    }
+                    func();
+                })
+            </script>
+</body>
+
+</html>

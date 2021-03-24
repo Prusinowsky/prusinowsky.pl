@@ -1,0 +1,144 @@
+:root {
+    --primary: #516756;
+    --secondary: #dce56c;
+    --background: #efefef;
+}
+
+body {
+    background-color: var(--background);
+}
+
+header {
+    background-color: var(--background);
+    height: 80px;
+}
+
+/* Nawigacja */
+
+.navbar {
+    background-color: var(--background);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    display: inline-block;
+    margin: 10px;
+    color: #fff;
+    padding: 7px 10px;
+    background-color: var(--primary);
+}
+
+.nav-item {
+    display: inline;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: var(--secondary);
+}
+
+@media (max-width: 1200px) {
+
+    header {
+        height: auto;
+    }
+
+    .navbar {
+        display: block;
+    }
+
+    .navbar-item {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+
+    .nav-link {
+        display: block;
+        margin: 15px auto;
+        max-width: 300px;
+    }
+
+    .nav-list {
+        margin: 30px 0;
+        display: block;
+        text-align: center;
+    }
+}
+
+.brand-link {
+    width: 140px;
+}
+
+.brand-logo {
+    max-height: 5rem !important;
+    margin: 15px 0;
+}
+
+.has-primary-color {
+    color: var(--primary);
+}
+
+.has-secondary-color {
+    color: var(--secondary);
+}
+
+.lead {
+    margin: 50px 0;
+    max-width: 50%;
+}   
+
+.photo-box {
+    position: relative;
+    background-color: var(--primary);
+    margin: 50px 0;
+    width: 500px;
+    top: -30px;
+    left: -30px;
+}
+
+.photo-box .photo {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    width: auto;
+}
+
+.photo-spotify {
+    width: 300px;
+    height: 300px;
+    margin: 60px auto 30px auto;
+}
+
+@media (max-width: 1200px) {
+
+    .lead {
+        margin: 50px auto;
+        max-width: 560px;
+    }   
+
+    .photo-box {
+        margin: 50px auto;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .lead {
+        margin: 50px 40px;
+    } 
+
+    .photo-box {
+        max-width: 80%;
+    }
+}
+
+.social-icon {
+    margin: 30px 5px 10px 5px;
+    width: 2rem;
+    height: 2rem;
+}
