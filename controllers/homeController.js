@@ -1,5 +1,8 @@
-const fs = require('fs');
-const matter = require('gray-matter');
+const fs = require('fs')
+const markdown = require('markdown-it')
+const matter = require('gray-matter')
+
+const md = new markdown()
 
 /**
  * Home View 
@@ -9,7 +12,7 @@ const homeView = async (req, res, next) => {
     const data = matter(file);
 
     res.render('index', {
-        data
+        ...data
     })
 }
 
@@ -25,11 +28,34 @@ const homeView = async (req, res, next) => {
  */
  const aboutView = (req, res, next) => {
 
-    const file = fs.readFileSync('./content/about.html', 'utf8');
+    const file = fs.readFileSync('./content/about.md', 'utf8');
     const data = matter(file);
+    const html = md.render(data.content)
 
-    res.render('index', {
-        data
+    console.log(data.data.title)
+
+    res.render('article', {
+        html,
+        ...data
+    })
+
+}
+
+
+/**
+ * Experience View 
+ */
+ const experienceView = (req, res, next) => {
+
+    const file = fs.readFileSync('./content/experience.md', 'utf8');
+    const data = matter(file);
+    const html = md.render(data.content)
+
+    console.log(data.data.title)
+
+    res.render('article', {
+        html,
+        ...data
     })
 
 }
@@ -44,7 +70,7 @@ const homeView = async (req, res, next) => {
     const data = matter(file);
 
     res.render('index', {
-        data
+        ...data
     })
 
 }
@@ -54,5 +80,6 @@ module.exports = {
     homeView,
     projectsView,
     aboutView,
+    experienceView,
     contactView
 }
