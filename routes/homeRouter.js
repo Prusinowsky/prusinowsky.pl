@@ -5,8 +5,6 @@ const router = express.Router();
 
 router.get('/', homeView)
 router.get('/welcome', homeView)
-router.get('/projects', projectsView)
-router.get('/about', aboutView)
 router.get('/experience', experienceView)
 router.get('/contact', contactView)
 
